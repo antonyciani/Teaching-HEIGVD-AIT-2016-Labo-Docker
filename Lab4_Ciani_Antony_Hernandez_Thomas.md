@@ -1,7 +1,7 @@
 #Report AIT Lab 4 - Virtualization
 ## CIANI Antony – HERNANDEZ Thomas
 
-![Architecture](assets/reportimg/dockerlogo.png)
+![Architecture](../assets/reportimg/dockerlogo.png)
 
 
 ##1.	Introduction
@@ -42,7 +42,7 @@ What happens if we add more web server nodes? Do you think it is really dynamic?
 1. Take a screenshot of the stats page of HAProxy at http://192.168.42.42:1936. You should see your backend nodes. It should be really similar to the screenshot of the previous task.
 
 
-![Capture](assets/reportimg/captures/Task1_1.PNG)
+![Capture](../assets/reportimg/captures/Task1_1.PNG)
 
 
 2. Describe your difficulties for this task and your understanding of what is happening during this task. Explain in your own words why are we installing a process supervisor. Do not hesitate to do more research and to find more articles on that topic to illustrate the problem.
