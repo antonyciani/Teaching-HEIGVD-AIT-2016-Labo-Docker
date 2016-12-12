@@ -1,0 +1,2 @@
+root@0116e74b0c03:/# ls /nodes
+dc6c6e4917ae  fbdde49023b9

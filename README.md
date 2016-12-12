@@ -51,22 +51,36 @@ What happens if we add more web server nodes? Do you think it is really dynamic?
 
 1. Provide the docker log output for each of the containers: ha, s1 and s2. You need to create a folder logs in your repository to store the files separately from the lab report. For each lab task create a folder and name it using the task number. No need to create a folder when there are no logs.
 
-Example:
+	Example:
 	
-	|-- root folder
-	 |-- logs
-	   |-- task 1
-	   |-- task 3
-	   |-- ...
+		|-- root folder
+		 |-- logs
+		   |-- task 1
+		   |-- task 3
+		   |-- ...
 
 2. Give the answer to the question about the existing problem with the current solution.
 
+
+
 3. Give an explanation on how Serf is working. Read the official website to get more details about the GOSSIP protocol used in Serf. Try to find other solutions that can be used to solve similar situations where we need some auto-discovery mechanism.
+
+
 
 ##6.Task 3
 
+1. Provide the docker log output for each of the containers: ha, s1 and s2. Put your logs in the logs directory you created in the previous task.
+
+
+
+2. Provide the logs from the ha container gathered directly from the /var/log/serf.log file present in the container. Put the logs in the logs directory in your repo.
+
+
 
 ##7.Task 4
+
+
+
 ##8.Task 5
 
 ##9.Conclusion

@@ -1,0 +1,5 @@
+vagrant@ubuntu-14:/vagrant$ docker ps
+CONTAINER ID        IMAGE                  COMMAND             CREATED             STATUS              PORTS                                                                                    NAMES
+fbdde49023b9        softengheigvd/webapp   "/init"             10 minutes ago      Up 10 minutes       3000/tcp, 7373/tcp, 7946/tcp                                                             s2
+0116e74b0c03        softengheigvd/ha       "/init"             14 minutes ago      Up 14 minutes       0.0.0.0:80->80/tcp, 7373/tcp, 0.0.0.0:1936->1936/tcp, 0.0.0.0:9999->9999/tcp, 7946/tcp   ha
+vagrant@ubuntu-14:/vagrant$
