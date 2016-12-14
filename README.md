@@ -155,14 +155,14 @@ BLABLA INTRO BLABLA
 1. Provide the docker log output for each of the containers:  `ha`, `s1` and `s2`.
    Put your logs in the `logs` directory you created in the previous task.
 
-	- [Logs Ha started](#logs/task3/Task3_Ha_Before_S1.txt)  
-	- [Logs Ha when S1 started](#logs/task3/Task3_Ha_After_S1_Join.txt)  
-	- [Logs S1 ](#logs/task3/Task3_S1.txt)  
+	- [Logs Ha started](../logs/task3/Task3_Ha_Before_S1.txt)  
+	- [Logs Ha when S1 started](../logs/task3/Task3_Ha_After_S1_Join.txt)  
+	- [Logs S1 ](../logs/task3/Task3_S1.txt)  
 
 3. Provide the logs from the `ha` container gathered directly from the `/var/log/serf.log`
    file present in the container. Put the logs in the `logs` directory in your repo.
 
-	- [Logs serf.log](#logs/task3/serf.log) 
+	- [Logs serf.log](../logs/task3/serf.log) 
 
 
 ### <a name="task-4"></a>Task 4: Use a template engine to easily generate configuration files
