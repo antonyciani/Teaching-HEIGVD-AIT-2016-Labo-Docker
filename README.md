@@ -129,11 +129,11 @@ BLABLA INTRO BLABLA
    report. For each lab task create a folder and name it using the
    task number. No need to create a folder when there are no logs.
 
-	- [Logs before Docker DNS problem solving](#logs/task2/Task2_2_Serf_Logs_Before_DNS_Solving.txt)  
+	- [Logs before Docker DNS problem solving](../logs/task2/Task2_2_Serf_Logs_Before_DNS_Solving.txt)  
 
-	- [Logs when Ha is started first and then the backend nodes S1 and S2](#logs/task2/Task2_2_HaFirst_ThenS1AndS2.txt)
+	- [Logs when Ha is started first and then the backend nodes S1 and S2](../logs/task2/Task2_2_HaFirst_ThenS1AndS2.txt)
 
-	- [Logs when the backend nodes are started first and then Ha](#logs/task2/Task2_2_S1S2FirstThenHa.txt)    
+	- [Logs when the backend nodes are started first and then Ha](../logs/task2/Task2_2_S1S2FirstThenHa.txt)    
 
 
 2. Give the answer to the question about the existing problem with the
