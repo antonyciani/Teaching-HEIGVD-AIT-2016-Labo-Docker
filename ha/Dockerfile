@@ -30,14 +30,12 @@ RUN npm install -g handlebars-cmd
 COPY services/ha /etc/services.d/ha
 RUN chmod +x /etc/services.d/ha/run
 
-# TODO: [Serf] Add Serf S6 setup
-#Tony
+
 # Copy the S6 service and make the run script executable
 COPY services/serf /etc/services.d/serf
 RUN chmod +x /etc/services.d/serf/run
 
-# TODO: [Serf] Copy events handler scripts
-#Tony
+# Copy events handler scripts
 RUN mkdir /serf-handlers
 COPY scripts /serf-handlers
 RUN chmod +x /serf-handlers/member-join.sh
@@ -48,14 +46,14 @@ RUN chmod +x /serf-handlers/member-leave.sh
 COPY config/haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
 COPY config/rsyslogd.cfg /etc/rsyslog.d/49-haproxy.conf
 
-#[HB] Copy the haproxy configuration template
+# Copy the haproxy configuration template
 RUN mkdir /config
 COPY config/haproxy.cfg.hb /config
 
 # Clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-#[CFG] Create the nodes folder
+# Create the nodes folder
 RUN mkdir /nodes
 
 # Expose the ports for Serf

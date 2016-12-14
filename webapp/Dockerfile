@@ -28,8 +28,7 @@ RUN mkdir /opt/bin \
 COPY services/node /etc/services.d/node
 RUN chmod +x /etc/services.d/node/run
 
-# TODO: [Serf] Add Serf S6 setup
-#Tony
+# Add Serf S6 setup
 # Copy the S6 service and make the run script executable
 COPY services/serf /etc/services.d/serf
 RUN chmod +x /etc/services.d/serf/run

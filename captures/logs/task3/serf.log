@@ -1,6 +1,0 @@
-root@710ed72e5c63:/# cat /var/log/serf.log
-Member join script triggered
-Member join event received from: 710ed72e5c63 with role balancer
-Member join script triggered
-Member join event received from: e332031e847e with role backend
-root@710ed72e5c63:/#
