@@ -3,6 +3,7 @@
 
 ![Architecture](assets/reportimg/dockerlogo.png)
 
+### <a name="table_of_content"></a>Table of content
 
 0. [Introduction](#introduction)
 0. [Identify issues and install the tools](#task-0)
@@ -92,7 +93,7 @@ BLABLA INTRO BLABLA
 1. Take a screenshot of the stats page of HAProxy at
    <http://192.168.42.42:1936>. You should see your backend nodes.
 
-   ![Capture](captures/Task1_1.PNG)
+   ![Capture](captures/task0/Task0.PNG)
 
 2. Give the URL of your repository URL in the lab report.
 
@@ -106,6 +107,10 @@ BLABLA INTRO BLABLA
 1. Take a screenshot of the stats page of HAProxy at
    <http://192.168.42.42:1936>. You should see your backend nodes. It
    should be really similar to the screenshot of the previous task.
+
+   ![Capture](captures/task1/Task1_1.PNG)
+   
+
 
 2. Describe your difficulties for this task and your understanding of
    what is happening during this task. Explain in your own words why
@@ -124,18 +129,17 @@ BLABLA INTRO BLABLA
    report. For each lab task create a folder and name it using the
    task number. No need to create a folder when there are no logs.
 
-   Example:
+	- [Logs before Docker DNS problem solving](#logs/task2/Task2_2_Serf_Logs_Before_DNS_Solving.txt)  
 
-   ```
-   |-- root folder
-     |-- logs
-       |-- task 1
-       |-- task 3
-       |-- ...
-   ```
+	- [Logs when Ha is started first and then the backend nodes S1 and S2](#logs/task2/Task2_2_HaFirst_ThenS1AndS2.txt)
+
+	- [Logs when the backend nodes are started first and then Ha](#logs/task2/Task2_2_S1S2FirstThenHa.txt)    
+
 
 2. Give the answer to the question about the existing problem with the
    current solution.
+
+
 
 3. Give an explanation on how `Serf` is working. Read the official
    website to get more details about the `GOSSIP` protocol used in
@@ -151,8 +155,14 @@ BLABLA INTRO BLABLA
 1. Provide the docker log output for each of the containers:  `ha`, `s1` and `s2`.
    Put your logs in the `logs` directory you created in the previous task.
 
+	- [Logs Ha started](#logs/task3/Task3_Ha_Before_S1.txt)  
+	- [Logs Ha when S1 started](#logs/task3/Task3_Ha_After_S1_Join.txt)  
+	- [Logs S1 ](#logs/task3/Task3_S1.txt)  
+
 3. Provide the logs from the `ha` container gathered directly from the `/var/log/serf.log`
    file present in the container. Put the logs in the `logs` directory in your repo.
+
+	- [Logs serf.log](#logs/task3/serf.log) 
 
 
 ### <a name="task-4"></a>Task 4: Use a template engine to easily generate configuration files
