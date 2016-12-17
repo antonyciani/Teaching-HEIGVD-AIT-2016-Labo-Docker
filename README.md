@@ -259,9 +259,9 @@ Suppose further currently your web servers and your load balancer are deployed l
 	- [Logs haproxy.cfg when S1 is started](./logs/task4/tmp_haproxy_S1_started.cfg) 
 	- [Logs haproxy.cfg when S2 is started](./logs/task4/tmp_haproxy_S2_started.cfg) 
 
-	   In addition, provide a log file containing the output of the 
-	   `docker ps` console and another file (per container) with
-	   `docker inspect <container>`. Four files are expected.
+	In addition, provide a log file containing the output of the 
+`docker ps` console and another file (per container) with
+`docker inspect <container>`. Four files are expected.
 
 
 	- [docker ps](./logs/task4/docker_ps.txt)
