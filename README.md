@@ -255,9 +255,21 @@ Suppose further currently your web servers and your load balancer are deployed l
    already did for the Docker logs in the previous tasks. Three files
    are expected.
    
-   In addition, provide a log file containing the output of the 
-   `docker ps` console and another file (per container) with
-   `docker inspect <container>`. Four files are expected.
+	- [Logs haproxy.cfg when HA is started](./logs/task4/tmp_haproxy.cfg) 
+	- [Logs haproxy.cfg when S1 is started](./logs/task4/tmp_haproxy_S1_started.cfg) 
+	- [Logs haproxy.cfg when S2 is started](./logs/task4/tmp_haproxy_S2_started.cfg) 
+
+	   In addition, provide a log file containing the output of the 
+	   `docker ps` console and another file (per container) with
+	   `docker inspect <container>`. Four files are expected.
+
+
+	- [docker ps](./logs/task4/docker_ps.txt)
+	- [docker inspect ha](./logs/task4/docker_inspect_ha.txt)
+	- [docker inspect s1](./logs/task4/docker_inspect_s1.txt)
+	- [docker inspect s2](./logs/task4/docker_inspect_s2.txt)
+	
+
    
 4. Based on the three output files you have collected, what can you
    say about the way we generate it? What is the problem if any?
@@ -271,19 +283,36 @@ Suppose further currently your web servers and your load balancer are deployed l
 1. Provide the file `/usr/local/etc/haproxy/haproxy.cfg` generated in
    the `ha` container after each step. Three files are expected.
    
-   In addition, provide a log file containing the output of the 
-   `docker ps` console and another file (per container) with
-   `docker inspect <container>`. Four files are expected.
+	- [Logs haproxy.cfg when HA is started](./logs/task5/1/haproxy_ha_started.cfg)
+	- [Logs haproxy.cfg when S1 is started](./logs/task5/1/haproxy_s1_started.cfg)
+	- [Logs haproxy.cfg when S2 is started](./logs/task5/1/haproxy_s2_started.cfg)
+
+
+	In addition, provide a log file containing the output of the 
+	`docker ps` console and another file (per container) with
+	`docker inspect <container>`. Four files are expected.
+
+	- [docker ps](./logs/task5/1/docker_ps_ha_s1_s2.txt)
+	- [docker inspect ha](./logs/task5/1/docker_inspect_ha.txt)
+	- [docker inspect s1](./logs/task5/1/docker_inspect_s1.txt)
+	- [docker inspect s2](./logs/task5/1/docker_inspect_s2.txt)	
 
 2. Provide the list of files from the `/nodes` folder inside the `ha` container.
    One file expected with the command output.
 
+	- [List of nodes](./logs/task5/2/nodes_list_part2.txt)
+
 3. Provide the configuration file after you stopped one container and
    the list of nodes present in the `/nodes` folder. One file expected
    with the command output. Two files are expected.
+
+	- [Logs haproxy.cfg when S1 is stopped](./logs/task5/3/haproxy_s1_stopped.cfg)
+	- [List of nodes](./logs/task5/3/nodes_list_part3_s1_stopped.txt)
    
     In addition, provide a log file containing the output of the 
    `docker ps` console. One file expected.
+
+	- [docker ps](./logs/task5/3/docker_ps_ha_s2_s1_stopped.txt)
 
 
 ### <a name="task-6"></a>Task 6: Make the load balancer automatically reload the new configuration
@@ -295,10 +324,29 @@ Suppose further currently your web servers and your load balancer are deployed l
    applications running. Additional screenshots are welcome to see a
    sequence of experimentations like shutting down a node and starting
    more nodes.
+
+	![HA_Started_Service_Unavailable](captures/task6/HA_Started_Service_Unavailable_StartPage.png)
+
+	![HA_Started_Service_Unavailable](captures/task6/HA_Started_Service_Unavailable.png)
+
+	Starting 4 nodes :
+
+	![HA_Started_Four_Nodes](captures/task6/HA_S1_S2_S3_S4_Started_StartPage.png)
+
+	![Service_Available](captures/task6/HA_Started_Service_Available.png)
+
+	Killing S2:
+
+	![HA_Started_Four_Nodes](captures/task6/HA_S1_S3_S4_Started_S2_Killed_StartPage.png)
+
    
-   Also provide the output of `docker ps` in a log file. At least 
-   one file is expected. You can provide one output per step of your
-   experimentation according to your screenshots.
+	Also provide the output of `docker ps` in a log file. At least 
+	one file is expected. You can provide one output per step of your
+	experimentation according to your screenshots.
+
+	- [docker ps only HA started](./logs/task6/HA_Started.txt)
+	- [docker ps HA, S1, S2, S3, S4 started](./logs/task6/HA_S1_S2_S3_S4_Started.txt)
+	- [docker ps after S2 is killed](./logs/task6/HA_S1_S3_S4_Started_S2_Killed.txt)
    
 2. Give your own feelings about the final solution. Propose
    improvements or ways to do the things differently. If any, provide
