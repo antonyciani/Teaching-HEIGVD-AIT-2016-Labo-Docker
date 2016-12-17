@@ -330,13 +330,13 @@ Suppose further currently your web servers and your load balancer are deployed l
 
 ![HA_Started_Service_Unavailable](captures/task6/HA\_Started\_Service\_Unavailable.png)
 
-	Starting 4 nodes :
+Starting 4 nodes :
 
 ![HA_Started_Four_Nodes](captures/task6/HA_S1_S2_S3_S4_Started_StartPage.png)
 
 ![Service_Available](captures/task6/HA_Started_Service_Available.png)
 
-	Killing S2:
+Killing S2:
 
 ![HA_Started_Four_Nodes](captures/task6/HA_S1_S3_S4_Started_S2_Killed_StartPage.png)
 
