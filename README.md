@@ -325,7 +325,7 @@ Suppose further currently your web servers and your load balancer are deployed l
    sequence of experimentations like shutting down a node and starting
    more nodes.
 
-	![HA_Started_Service_Unavailable](captures/task6/HA_Started_Service_Unavailable_StartPage.png)
+	![HA_Started_Service_Unavailable](captures/task6/HA_Started_Service_Unavailable_StartPage.PNG)
 
 	![HA_Started_Service_Unavailable](captures/task6/HA\_Started\_Service\_Unavailable.PNG)
 
