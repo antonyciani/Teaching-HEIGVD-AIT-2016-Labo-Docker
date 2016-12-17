@@ -325,20 +325,19 @@ Suppose further currently your web servers and your load balancer are deployed l
    sequence of experimentations like shutting down a node and starting
    more nodes.
 
-	
-![HA_Started_Service_Unavailable](captures/task6/HA_Started_Service_Unavailable_StartPage.png)
+	![HA_Started_Service_Unavailable](captures/task6/HA_Started_Service_Unavailable_StartPage.png)
 
-![HA_Started_Service_Unavailable](captures/task6/HA\_Started\_Service\_Unavailable.png)
+	![HA_Started_Service_Unavailable](captures/task6/HA\_Started\_Service\_Unavailable.PNG)
 
-Starting 4 nodes :
+	Starting 4 nodes :
 
-![HA_Started_Four_Nodes](captures/task6/HA_S1_S2_S3_S4_Started_StartPage.png)
+	![HA_Started_Four_Nodes](captures/task6/HA_S1_S2_S3_S4_Started_StartPage.PNG)
 
-![Service_Available](captures/task6/HA_Started_Service_Available.png)
+	![Service_Available](captures/task6/HA_Started_Service_Available.PNG)
 
-Killing S2:
+	Killing S2:
 
-![HA_Started_Four_Nodes](captures/task6/HA_S1_S3_S4_Started_S2_Killed_StartPage.png)
+	![HA_Started_Four_Nodes](captures/task6/HA_S1_S3_S4_Started_S2_Killed_StartPage.PNG)
 
    
 	Also provide the output of `docker ps` in a log file. At least 
