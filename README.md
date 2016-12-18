@@ -19,7 +19,7 @@
 
 ### <a name="introduction"></a>Introduction
 
-BLABLA INTRO BLABLA
+This lab builds on a previous [lab](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-AIT-2015-Labo-02) on load balancing. Through multiple tasks, we will try to analyse and perform one possible approach in order to manage scalable infrastructure where we can add and remove nodes without having to rebuild th HAProxy image.
 
 ##### Pedagogical objectives
 
@@ -170,6 +170,10 @@ Suppose further currently your web servers and your load balancer are deployed l
    research and to find more articles on that topic to illustrate the
    problem.
 
+	**Answer:**
+
+	We performed this task without any difficulties. We needed to install a process supervisor because we want to run multiple processes at the same time in our Docker environment. We will need to perform management tasks later in this lab which means multiple processes running at the same time. The supervisor will be useful in order to start the other processes needed in the container.
+
 
 ### <a name="task-2"></a>Task 2: Add a tool to manage membership in the web server cluster
 
@@ -191,12 +195,31 @@ Suppose further currently your web servers and your load balancer are deployed l
 2. Give the answer to the question about the existing problem with the
    current solution.
 
+	**Answer:**
+
+	The problem here is the following:
+	if we try to start the HAProxy first, it will not start because the two containers, s1 and s2 are not started, and we try to link them using the Docker run command. On the other hand, if we start s1 and s2 first, an error will occure, because they try to connect the Serf cluster via ha container which is not running.
+
+	One Solution would consist of completing the `-join` option with the `-retry`. Using this option, they will keep attempting to join the cluster as long as they can or until the maximum value of possible attempts is reached.
+
 
 
 3. Give an explanation on how `Serf` is working. Read the official
    website to get more details about the `GOSSIP` protocol used in
    `Serf`. Try to find other solutions that can be used to solve
    similar situations where we need some auto-discovery mechanism.
+
+	**Answer:**
+
+	Serf is a decentralized solution for service discovery and orchestration. It uses a gossip protocol to broadcast messages to the cluster, which is based on SWIM. For service registration, the agent will be able to identifiy all the hosts. Once joined to the cluster, other members will be able to see a new host. For discovery, members command is used which return the current members of the cluster.
+
+	Serf uses the gossip protocol in order to solve three major problems:
+	
+	1. **Membership**: Serf can maintain the list of web servers for a load balancer and notify it whenever a node comes online or goes offlne.
+	2. **Failure detection and recovery**: failed nodes are automatically detected and notifications are sent to the rest of the cluster.
+	3. **Custom event propagation**: custom events and queries can be broadcasted to the cluster.
+
+	We can find other solutions that can be used to solve our auto-discovery mechanism problem. Etcd is one of them, and is a highly-available, key-value store for shared configuration and service discovery. Another one, pretty popular those days, is Netflix's middle-tier, load balancing and discovery service, called Eureka.
 
 
 ### <a name="task-3"></a>Task 3: React to membership changes
@@ -229,26 +252,41 @@ Suppose further currently your web servers and your load balancer are deployed l
    Tell us about the pros and cons to merge as much as possible of the
    command. In other words, compare:
 
-  ```
-  RUN command 1
-  RUN command 2
-  RUN command 3
-  ```
+    ```
+	RUN command 1
+	RUN command 2
+	RUN command 3
+	```
+	
+	vs.
+	
+	```
+	RUN command 1 && command 2 && command 3
+	```
+	
+	There are also some articles about techniques to reduce the image
+	size. Try to find them. They are talking about `squashing` or
+	`flattening` images.
 
-  vs.
+	**Answer:**
 
-  ```
-  RUN command 1 && command 2 && command 3
-  ```
-
-  There are also some articles about techniques to reduce the image
-  size. Try to find them. They are talking about `squashing` or
-  `flattening` images.
+	Each Docker image references a list of read-only layers that represent filesystem differences. When modifications are made in the dockerfile, we need to build again the image. In order to gain time, images have a cash memory, so that only the new content is build.
+	When the image is built, a new layer is added in the list for each RUN command. For that reason, it is a good practice to merge as much as possible the commands.
+	
 
 2. Propose a different approach to architecture our images to be able
    to reuse as much as possible what we have done. Your proposition
    should also try to avoid as much as possible repetitions between
    your images.
+
+	**Answer:**
+	
+	Long and complex RUN statements must be split on multiple lines separated with backslashes for readable and maintainable reasons. The use of `RUN apt-get upgrade` must be avoided because many of the essential packages from the base images won't upgrade inside an unprivileged container. We could combine `RUN apt-get update` with `apt-get install` in the same RUN statement, because using `apt-get update` alone in a RUN statement causes caching issues and subsequent `apt-get install` instructions fail.
+
+	After building the image, all layers are in the Docker cache. Suppose we want to modify `apt-get install` by adding extra package. Docker sees the initial and modified instructions as identical and reuses the cache from previous steps. As a result the `apt-get update` is NOT executed because the build uses the cached version.
+
+	We could also use the cache busting technique which will ensures that our dockerfiles will install the latest package version with no further coding or manual intervention.
+	
 
 3. Provide the `/tmp/haproxy.cfg` file generated in the `ha` container
    after each step.  Place the output into the `logs` folder like you
@@ -273,6 +311,10 @@ Suppose further currently your web servers and your load balancer are deployed l
    
 4. Based on the three output files you have collected, what can you
    say about the way we generate it? What is the problem if any?
+
+	**Answer:**
+
+	The problem is that manual generation was involved for each output files. Since we want to perform an optimal cluster management, we could try to find a way which will allow us to generate those logs automatically.
 
 
 ### <a name="task-5"></a>Task 5: Generate a new load balancer configuration when membership changes
@@ -352,10 +394,18 @@ Suppose further currently your web servers and your load balancer are deployed l
    improvements or ways to do the things differently. If any, provide
    references to your readings for the improvements.
 
+	**Answer:**
+
+	The final solution seems to work fine! But in order to reach it, a lot of setup was required, which could be costly and time consuming for real life application. 
+	After some research, an alternative called [Docker Swarm](https://www.docker.com/products/docker-swarm#/overview "docker swarm") was found. It provides native clustering capabilities to turn a group of Docker engines into a single, virtual Docker Engine. These pooled ressources allow to scale out any application as if it were running on a single, huge computer. This solution provides high scalability and performance, high availability, flexible container scheduling and node discovery.
+
 
 ### <a name="difficulties"></a> Difficulties
 
-
+This lab was not really difficult because everything that was needed was already provided. The only difficulty was to understand the global and final architecture (due to the long reading) and to answer the questions.
 
 
 ### <a name="conclusion"></a> Conclusion
+
+This lab was interesting but a bit long to reach the end! Anyway, we are now full aware of membership management in the web cluster, how to use a template in order to generate configuration and how to make the load balancer automatically reload the new configuration.
+
