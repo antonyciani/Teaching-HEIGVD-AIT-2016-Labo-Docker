@@ -19,7 +19,7 @@
 
 ### <a name="introduction"></a>Introduction
 
-This lab builds on a previous [lab](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-AIT-2015-Labo-02) on load balancing. Through multiple tasks, we will try to analyse and perform one possible approach in order to manage scalable infrastructure where we can add and remove nodes without having to rebuild th HAProxy image.
+This lab builds on a previous [lab](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-AIT-2015-Labo-02) on load balancing. Through multiple tasks, we will try to analyse and perform one possible approach in order to manage scalable infrastructure where we can add and remove nodes without having to rebuild the HAProxy image.
 
 ##### Pedagogical objectives
 
